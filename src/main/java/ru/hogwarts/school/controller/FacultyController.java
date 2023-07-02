@@ -45,8 +45,6 @@ public class FacultyController {
         }
         return ResponseEntity.notFound().build();
     }
-
-
     @GetMapping
     public ResponseEntity<Collection<Faculty>> getAll() {
         return ResponseEntity.ok(facultyService.getAll());
@@ -54,5 +52,9 @@ public class FacultyController {
     @GetMapping("/color")
     Collection<Faculty> getAllByColor(@RequestParam String color) {
         return facultyService.getAllByColor(color);
+    }
+    @GetMapping("/name")
+    public Faculty findByFacultyName(@RequestParam String name) {
+        return facultyService.findByFacultyName(name);
     }
 }
