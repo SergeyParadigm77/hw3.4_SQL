@@ -1,9 +1,8 @@
 package ru.hogwarts.school.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 @Entity
 public class Faculty {
@@ -12,6 +11,7 @@ public class Faculty {
     private Long id;
     private String name;
     private String color;
+
 
     public Long getId() {
         return id;
@@ -37,12 +37,6 @@ public class Faculty {
         this.color = color;
     }
 
-    public Faculty(Long id, String name, String color) {
-        this.id = id;
-        this.name = name;
-        this.color = color;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,7 +49,4 @@ public class Faculty {
     public int hashCode() {
         return Objects.hash(id, name, color);
     }
-
-public Faculty() {
-}
 }
