@@ -39,9 +39,9 @@ public class StudentService {
     }
 
     public Faculty getFacultyByStudentId(Long id) {
-        return studentRepository.findById(id).orElse(null).getFaculty();
+        return studentRepository.findById(id).map(Student::getFaculty).orElse(null);
     }
     public Collection<Student> findAllByFacultyId(Long id) {
-        return getAll().stream().filter(it -> it.getFaculty().getId() == id).collect(Collectors.toList());
+        return studentRepository.findAllByFacultyId(id);
     }
 }
